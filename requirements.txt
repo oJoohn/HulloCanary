@@ -4,7 +4,7 @@ attrs==18.2.0
 certifi==2018.8.24
 cffi==1.11.5
 chardet==3.0.4
-discord.py==1.0.0a1558+g51a03d9
+git+https://github.com/Rapptz/discord.py@rewrite#egg=discord.py[voice]
 idna==2.7
 idna-ssl==1.1.0
 multidict==4.4.0
