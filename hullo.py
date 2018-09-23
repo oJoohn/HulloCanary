@@ -26,8 +26,8 @@ prefix = '!!'
 amarelo = 0xFFCC00
 vermelho = 0xbb0021
 discordcolor = 0x36393f
-#client = discord.Client()
-client = discord.AutoShardedClient(shard_count=2)
+client = discord.Client()
+#client = discord.AutoShardedClient(shard_count=2)
 
 is_prod = os.environ.get('IS_HEROKU', None)
 if is_prod:
@@ -466,9 +466,9 @@ async def on_message(message):
 
     #Shards
 
-    if message.content.lower().startswith(prefix+'shard'):
-        tutorial = '\n'.join(f'ID {shard} -- **' + str(round(client.latencies[shard][1] * 1000)) + '**ms'for shard in client.shards)
-        await message.channel.send("**Shards Rodando**\n"+tutorial)
+    #if message.content.lower().startswith(prefix+'shard'):
+        #tutorial = '\n'.join(f'ID {shard} -- **' + str(round(client.latencies[shard][1] * 1000)) + '**ms'for shard in client.shards)
+        #await message.channel.send("**Shards Rodando**\n"+tutorial)
 
     #Avatar
 
