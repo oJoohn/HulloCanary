@@ -3,7 +3,7 @@ import asyncio
 import random
 import json
 import time
-import secreto
+#import secreto
 #import json
 import requests
 import youtube_dl
@@ -29,6 +29,13 @@ discordcolor = 0x36393f
 #client = discord.Client()
 client = discord.AutoShardedClient(shard_count=2)
 
+is_prod = os.environ.get('IS_HEROKU', None)
+if is_prod:
+    token = os.environ.get('TOKEN')
+else:
+    import secreto
+    token = secreto.token
+    
 @client.event
 async def on_ready():
     print("=================================")
