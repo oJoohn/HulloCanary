@@ -282,7 +282,7 @@ async def on_message(message):
         escrever = ImageDraw.Draw(fundo)
         escrever.text(xy=(90, 180), text=message.mentions[1].name, fill=(211, 95, 0), font=fonte, align="center")
         escrever.text(xy=(410, 180), text=message.mentions[0].name, fill=(211, 95, 0), font=fonte, align="center")
-        ship = randint(1, 100)
+        ship = random.randint(1, 100)
         escrever.text(xy=(247, 180), text=ship + '%', fill=(211, 95, 0), font=fonte2, align="center")
         fundo.paste(avatar, (80, 80), avatar2)
         fundo.paste(avatar2, (410, 80), avatar)
