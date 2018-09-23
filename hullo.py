@@ -32,9 +32,6 @@ client = discord.AutoShardedClient(shard_count=2)
 is_prod = os.environ.get('IS_HEROKU', None)
 if is_prod:
     token = os.environ.get('TOKEN')
-else:
-    import secreto
-    token = secreto.token
     
 @client.event
 async def on_ready():
