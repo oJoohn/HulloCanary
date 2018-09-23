@@ -180,7 +180,7 @@ async def on_message(message):
     if message.content.lower().startswith(prefix+"eval"):
         if message.author.id == 369962464613367811:
           try:
-            messagem = await message.channel(message.channel, str(eval(message.content[7:])))
+            messagem = await message.channel.send(str(eval(message.content[7:])))
             await messagem.add_reaction("🤔")
           except Exception as e:
               messagem = await message.channel.send(repr(e))
@@ -282,8 +282,15 @@ async def on_message(message):
         escrever = ImageDraw.Draw(fundo)
         escrever.text(xy=(90, 180), text=message.mentions[1].name, fill=(211, 95, 0), font=fonte, align="center")
         escrever.text(xy=(410, 180), text=message.mentions[0].name, fill=(211, 95, 0), font=fonte, align="center")
-        ship = random.randint(1, 100)
-        escrever.text(xy=(247, 180), text=int(ship), fill=(211, 95, 0), font=fonte2, align="center")
+        ship = random.randint(1, 4)
+            if ship == 1:
+                escrever.text(xy=(247, 180), text='20%', fill=(211, 95, 0), font=fonte2, align="center")
+            if ship == 2:
+                escrever.text(xy=(247, 180), text='45%', fill=(211, 95, 0), font=fonte2, align="center")
+            if ship == 3:
+                escrever.text(xy=(247, 180), text='65%', fill=(211, 95, 0), font=fonte2, align="center")
+            if ship == 4:
+                escrever.text(xy=(247, 180), text='99%', fill=(211, 95, 0), font=fonte2, align="center")
         fundo.paste(avatar, (80, 80), avatar2)
         fundo.paste(avatar2, (410, 80), avatar)
         fundo.save('shipinho.png')
