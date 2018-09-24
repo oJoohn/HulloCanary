@@ -610,7 +610,9 @@ async def on_message(message):
             return await message.channel.send(embed=embedbanidobot)
         await message.channel.send('Quando alguem me Perguntar "{}", Oque eu devo Responder?? '.format(
             message.content[8:]))
-        lololo = await client.wait_for('message')
+        def pred(m):
+            return m.author == message.author and m.channel == message.channel
+        lololo = await client.wait_for('message', check=pred)
         r = requests.get('https://dogewebsite.glitch.me/api/v1/responses/set-response&question={}&answer={}'.format(
             message.content[8:], lololo.content[0:]
         ))
