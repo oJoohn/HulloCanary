@@ -249,7 +249,7 @@ async def on_message(message):
             return await message.channel.send(embed=embedbanidobot)
         url = requests.get(message.mentions[1].avatar_url)
         avatar = Image.open(BytesIO(url.content))
-        avatar = avatar.resize((100, 100));
+        avatar = avatar.resize((50, 50));
         bigsize = (avatar.size[0] * 3, avatar.size[1] * 3)
         mask = Image.new('L', bigsize, 0)
         draw = ImageDraw.Draw(mask)
@@ -263,7 +263,7 @@ async def on_message(message):
 
         url2 = requests.get(message.mentions[0].avatar_url)
         avatar2 = Image.open(BytesIO(url2.content))
-        avatar2 = avatar2.resize((100, 100));
+        avatar2 = avatar2.resize((50, 50));
         bigsize2 = (avatar.size[0] * 3, avatar2.size[1] * 3)
         mask2 = Image.new('L', bigsize2, 0)
         draw2 = ImageDraw.Draw(mask2)
@@ -276,23 +276,23 @@ async def on_message(message):
         output2.save('shipavatar2.png')
 
 
-        fundo = Image.open('ship.png')
-        fonte = ImageFont.truetype('Technoma.otf', 30)
-        fonte2 = ImageFont.truetype('Technoma.otf', 50)
+        fundo = Image.open('novo ship.png')
+        fonte = ImageFont.truetype('Technoma.otf', 25)
+        fonte2 = ImageFont.truetype('Technoma.otf', 40)
         escrever = ImageDraw.Draw(fundo)
-        escrever.text(xy=(90, 180), text=message.mentions[1].name, fill=(211, 95, 0), font=fonte, align="center")
-        escrever.text(xy=(410, 180), text=message.mentions[0].name, fill=(211, 95, 0), font=fonte, align="center")
+        escrever.text(xy=(60, 50), text=message.mentions[1].name, fill=(211, 95, 0), font=fonte, align="center")
+        escrever.text(xy=(60, 130), text=message.mentions[0].name, fill=(211, 95, 0), font=fonte, align="center")
         ship = random.randint(1, 4)
         if ship == 1:
-            escrever.text(xy=(247, 180), text='20%', fill=(211, 95, 0), font=fonte2, align="center")
+            escrever.text(xy=(135, 82), text='20%', fill=(255, 255, 255), font=fonte2, align="center")
         if ship == 2:
-            escrever.text(xy=(247, 180), text='45%', fill=(211, 95, 0), font=fonte2, align="center")
+            escrever.text(xy=(135, 82), text='45%', fill=(255, 255, 255), font=fonte2, align="center")
         if ship == 3:
-            escrever.text(xy=(247, 180), text='65%', fill=(211, 95, 0), font=fonte2, align="center")
+            escrever.text(xy=(135, 82), text='65%', fill=(255, 255, 255), font=fonte2, align="center")
         if ship == 4:
-            escrever.text(xy=(247, 180), text='99%', fill=(211, 95, 0), font=fonte2, align="center")
-        fundo.paste(avatar, (80, 80), avatar2)
-        fundo.paste(avatar2, (410, 80), avatar)
+            escrever.text(xy=(135, 82), text='99%', fill=(255, 255, 255), font=fonte2, align="center")
+        fundo.paste(avatar, (5, 34), avatar2)
+        fundo.paste(avatar2, (5, 120), avatar)
         fundo.save('shipinho.png')
         await message.channel.send(file=discord.File(fp="shipinho.png"))
 #Utilidades
@@ -826,5 +826,5 @@ async def on_message_delete(message):
         except:
             pass
         pass
-
+    
 client.run(token)
