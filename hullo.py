@@ -826,5 +826,4 @@ async def on_message_delete(message):
         except:
             pass
         pass
-    
 client.run(token)
