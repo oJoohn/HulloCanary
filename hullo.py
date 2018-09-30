@@ -174,6 +174,13 @@ async def on_message(message):
     )
     errorembedpermi.set_author(name='Error')
     errorembedpermi.set_thumbnail(url='http://pizzarialukas.com.br/app/webroot/img/erro.png')
+    boterrorembedpermi = discord.Embed(
+        title=None,
+        color=vermelho,
+        description='O Bot não tem permissão para executar essa ação',
+    )
+    boterrorembedpermi.set_author(name='Error')
+    boterrorembedpermi.set_thumbnail(url='http://pizzarialukas.com.br/app/webroot/img/erro.png')
 
 #EVAL, Infuncional
 
@@ -689,40 +696,47 @@ async def on_message(message):
     #Ban
 
     if message.content.lower().startswith(prefix + 'ban'):
-        if not message.author.server_permissions.administrator:
-            return await client.send_message(message.channel,embed=errorembedpermi)
+        if not message.author.guild_permissions.administrator:
+            return await message.channel.send(embed=errorembedpermi)
+
         mentionban = message.mentions[0]
         embedban = discord.Embed(
             title=None,
             color=amarelo,
             description='Usuário: ' + mentionban.name + '\n'
-                        'Motivo: ' + message.content[28:] + '\n'
-                        'Staff: ' + message.author.name + '\n'
+                    'Motivo: ' + message.content[28:] + '\n'
+                    'Staff: ' + message.author.name + '\n'
         )
         embedban.set_author(name='Banimento - ' + mentionban.name, icon_url='http://bit.ly/2JEDsjf')
         embedban.set_thumbnail(url='https://upload.wikimedia.org/wikipedia/commons/1/14/Ban_sign.png')
         embeddmban = discord.Embed(
             title=None,
             color=amarelo,
-            description='Você foi banido do Servidor ' + message.author.server.name + '\n' 
+            description='Você foi banido do Servidor ' + message.author.guild.name + '\n' 
                         'Motivo: ' + message.content[28:] + '\n'
                         'Staff: ' + message.author.name
         )
         embeddmban.set_author(name='Banimento', icon_url='http://bit.ly/2JEDsjf')
-        logban = discord.utils.find(lambda c: c.name == 'log', message.author.server.channels)
+        logban = discord.utils.find(lambda c: c.name == 'log', message.author.guild.channels)
+        await mentionban.send(embed=embeddmban)
         try:
-            await mentionban.send(embed=embeddmban)
+            await mentionban.ban()
+        except:
+            await message.channel.send(embed=boterrorembedpermi)
+            return
+        try:
+            await logban.send(embed=embedban)
         except:
             pass
-        await message.channel.send(embed=embedban)
-        await logban.send(embed=embedban)
-        await mentionban.ban()
-
+        try:
+            await message.channel.send(embed=embedban)
+        except:
+            pass
     #Kick
 
     if message.content.lower().startswith(prefix + 'kick'):
-        if not message.author.server_permissions.administrator:
-            return await client.send_message(message.channel,embed=errorembedpermi)
+        if not message.author.guild_permissions.administrator:
+            return await message.channel.send(embed=errorembedpermi)
         mentionkick = message.mentions[0]
         embedkick = discord.Embed(
             title=None,
@@ -736,16 +750,26 @@ async def on_message(message):
         embeddmkick = discord.Embed(
             title=None,
             color=amarelo,
-            description='Você foi kickado do Servidor ' + message.author.server.name + '\n' 
+            description='Você foi kickado do Servidor ' + message.author.guild.name + '\n' 
                         'Motivo: ' + message.content[28:] + '\n'
                         'Staff: ' + message.author.name
         )
         embeddmkick.set_author(name='Kick', icon_url='http://bit.ly/2JEDsjf')
-        logkick = discord.utils.find(lambda c: c.name == 'log', message.author.server.channels)
+        logkick = discord.utils.find(lambda c: c.name == 'log', message.author.guild.channels)
         await mentionkick.send(embed=embeddmkick)
-        await message.channel.send(embed=embedkick)
-        await logkick.send(embed=embedkick)
-        await mentionkick.kick()
+        try:
+            await mentionkick.kick()
+        except:
+            await message.channel.send(embed=boterrorembedpermi)
+            return
+        try:
+            await logkick.send(embed=embedkick)
+        except:
+            pass
+        try:
+            await message.channel.send(embed=embedkick)
+        except:
+            pass
 
     @client.event
     async def on_reaction_add(reaction, user):
