@@ -449,7 +449,7 @@ async def on_message(message):
                         '🤔 !!ServerInfo - Info do Server\n'
                         '🤔 !!Perfil - Suas Informações\n'
                         '🤔 !!BotInfo - Minha Informações\n'
-                        '🤔 !!Info - Minha Informações\n'
+                        '🤔 !!Info - Suas Informações\n'
         )
         embednajudautilidades.set_author(name= '🤔 Hullo!! - Utilidades 🤔')
         embednajudautilidades.set_footer(text='2018 © Hullo')
