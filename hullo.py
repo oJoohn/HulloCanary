@@ -449,7 +449,7 @@ async def on_message(message):
                         '🤔 !!ServerInfo - Info do Server\n'
                         '🤔 !!Perfil - Suas Informações\n'
                         '🤔 !!BotInfo - Minha Informações\n'
-                        '🤔 !!Info - Suas Informações\n'
+                        '🤔 !!Info - Minha Informações\n'
         )
         embednajudautilidades.set_author(name= '🤔 Hullo!! - Utilidades 🤔')
         embednajudautilidades.set_footer(text='2018 © Hullo')
@@ -609,7 +609,12 @@ async def on_message(message):
         pergunta = message.content[5:]
         r = requests.get('https://dogewebsite.glitch.me/api/v1/responses/get-question&question=' + pergunta)
         resposta = json.loads(r.text)
-        lista = ["@here", "@everyone"]
+        if "@here" in r.text:
+            await message.channel.send("Esse Texto possuia uma Menção, por isso foi Removido :(")
+            return
+        if "@everyone" in r.text:
+            await message.channel.send("Esse Texto possuia uma Menção, por isso foi Removido :(")
+            return
         await message.channel.send('{}, {}'.format(message.author.mention, resposta['response']))
 
     #ADDSS
