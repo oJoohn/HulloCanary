@@ -92,7 +92,7 @@ async def on_member_join(member):
         output.putalpha(mask)
         output.save('avatar.png')
 
-        fundo = Image.open('bemvindonovo.png')
+        fundo = Image.open('bemvindoo.png')
         fonte = ImageFont.truetype('Technoma.otf', 30)
         escrever = ImageDraw.Draw(fundo)
         escrever.text(xy=(155, 75), text=member.name, fill=(211, 95, 0), font=fonte, align="center")
@@ -126,7 +126,7 @@ async def on_member_join(member):
             output.putalpha(mask)
             output.save('avatar.png')
 
-            fundo = Image.open('bemvindonovo.png')
+            fundo = Image.open('bemvindoo.png')
             fonte = ImageFont.truetype('Technoma.otf', 30)
             escrever = ImageDraw.Draw(fundo)
             escrever.text(xy=(155, 75), text=member.name, fill=(211, 95, 0), font=fonte, align="center")
