@@ -23,7 +23,7 @@ global players
 players = {}
 prefix = '!!'
 
-amarelo = 0xFFCC00
+branco = 0xFFFFFF
 vermelho = 0xbb0021
 discordcolor = 0x36393f
 client = discord.Client()
@@ -71,7 +71,7 @@ async def on_member_join(member):
     try:
         embedbemvindo = discord.Embed(
             title=None,
-            color=amarelo,
+            color=branco,
             description='Seja Bem Vindo ao Servidor ' + member.guild.name + ' ' + member.mention + ' \n',
         )
         embedbemvindo.set_author(name='Bem Vindo ao ' + member.guild.name, icon_url='http://bit.ly/2JEDsjf')
@@ -106,7 +106,7 @@ async def on_member_join(member):
         try:
             embedbemvindo = discord.Embed(
                 title=None,
-                color=amarelo,
+                color=branco,
                 description='Seja Bem Vindo ao Servidor ' + member.guild.name + ' ' + member.mention + ' \n',
             )
             embedbemvindo.set_author(name='Bem Vindo ao ' + member.guild.name, icon_url='http://bit.ly/2JEDsjf')
@@ -129,7 +129,7 @@ async def on_member_join(member):
             fundo = Image.open('bemvindoo.png')
             fonte = ImageFont.truetype('Technoma.otf', 30)
             escrever = ImageDraw.Draw(fundo)
-            escrever.text(xy=(155, 75), text=member.name, fill=(211, 95, 0), font=fonte, align="center")
+            escrever.text(xy=(165, 45), text=member.name, fill=(211, 95, 0), font=fonte, align="center")
 
             fundo.paste(avatar, (39, 8), avatar)
             fundo.save('toperzon.png')
@@ -141,7 +141,7 @@ async def on_member_join(member):
 async def on_member_remove(member):
     embedsaida = discord.Embed(
         title=None,
-        color=amarelo,
+        color=branco,
         description=member.mention + ' Saiu do Servidor'
     )
     embedsaida.set_author(name='🤔 Saiu do Servidor')
@@ -160,7 +160,7 @@ async def on_member_remove(member):
 async def on_message(message):
     embedbanidobot = discord.Embed(
         title=None,
-        color=amarelo,
+        color=branco,
         description='' + message.author.mention + '\n'
                                                    'Você Foi Banido Permanentemente de Utilizar o HULLO\n'
                                                    'Você não poderá Utilizar meus Comandos'
@@ -309,7 +309,7 @@ async def on_message(message):
             return await client.send_message(message.channel, embed=embedbanidobot)
         embedbotinfo = discord.Embed(
             title=None,
-            color=amarelo,
+            color=branco,
             description=None
         )
         embedbotinfo.set_author(name='🤔 Minhas Informaçoes')
@@ -334,7 +334,7 @@ async def on_message(message):
         channell = discord.utils.find(lambda c: c.id == 464924857809764372, server.channels)
         embedsugestao = discord.Embed(
             title=None,
-            color=amarelo,
+            color=branco,
             description="Sugestão enviada por: " + message.author.name + '\n'
                         "Do Servidor: " + message.guild.name + '\n'
                         "Sugestão: " + '``' + message.content[10:] + '``'
@@ -343,7 +343,7 @@ async def on_message(message):
         embedsugestao.set_footer(text='2018 © Hullo')
         embedsugestaoserver = discord.Embed(
             title=None,
-            color=amarelo,
+            color=branco,
             description="Sugestão Enviada"
         )
         embedsugestaoserver.set_author(name='🤔 Sugestão')
@@ -365,7 +365,7 @@ async def on_message(message):
             return await message.channel.send(embed=embedbanidobot)
         embedmention = discord.Embed(
             title=None,
-            color=amarelo,
+            color=branco,
             description="🤔 Meu Prefix nesse Servidor é ``" + prefix + "``" + " e Meu Comando de Ajuda ``" + prefix + "ajuda``"
         )
         embedmention.set_author(name='🤔 Hullo!!')
@@ -383,7 +383,7 @@ async def on_message(message):
             return await message.channel.send(embed=embedbanidobot)
         embedserverajuda = discord.Embed(
             title=None,
-            color=amarelo,
+            color=branco,
             description='📮 Enviei meus comandos para o seu privado'
         )
         embedserverajuda.set_author(name='🤔 Hullo!! - Ajuda 🤔')
@@ -392,7 +392,7 @@ async def on_message(message):
         global embednajuda
         embednajuda = discord.Embed(
             title=None,
-            color=amarelo,
+            color=branco,
             description='Clique no Emoji\n'
                         'Para Abrir meus Comandos\n'
                         '    \n'
@@ -415,7 +415,7 @@ async def on_message(message):
         global embednajudajogo
         embednajudajogo = discord.Embed(
             title=None,
-            color=amarelo,
+            color=branco,
             description='Meus Joguinhos :D\n'
                         '   \n'
                         '💸 !!Moeda - Cara ou Coroa\n'
@@ -429,7 +429,7 @@ async def on_message(message):
         global embednajudamoderacao
         embednajudamoderacao = discord.Embed(
             title=None,
-            color=amarelo,
+            color=branco,
             description='Meus Comandos de Moderação :D\n'
                         '   \n'
                         '🥊 !!Kick (player) (motivo) - Expulsar pessoas :D\n'
@@ -442,7 +442,7 @@ async def on_message(message):
         global embednajudautilidades
         embednajudautilidades = discord.Embed(
             title=None,
-            color=amarelo,
+            color=branco,
             description='Minha Utilidades :D\n'
                         '   \n'
                         '🤔 !!Avatar - Seu Avatar (ou mention)\n'
@@ -456,7 +456,7 @@ async def on_message(message):
         global embednajudamusica
         embednajudamusica = discord.Embed(
             title=None,
-            color=amarelo,
+            color=branco,
             description='Meus Comandos de Musica :D\n'
                         '   \n'
                         '🎵 Infelizmente\n'
@@ -487,7 +487,7 @@ async def on_message(message):
             mentionavatar = message.mentions[0]
             embedavatar2 = discord.Embed(
                 title=None,
-                color=amarelo,
+                color=branco,
                 description=None
             )
             embedavatar2.set_image(url=mentionavatar.avatar_url)
@@ -500,7 +500,7 @@ async def on_message(message):
         except:
             embedavatar = discord.Embed(
                 title=None,
-                color=amarelo,
+                color=branco,
                 description=None
             )
             embedavatar.set_image(url=message.author.avatar_url)
@@ -533,7 +533,7 @@ async def on_message(message):
             "idle", "Ausente").replace("offline", "Offline")
         embedinfo = discord.Embed(
             title=None,
-            color=amarelo,
+            color=branco,
             description=None
         )
         embedinfo.set_author(name='Suas Informações', icon_url=message.author.avatar_url)
@@ -559,7 +559,7 @@ async def on_message(message):
         server = message.guild
         embedserverinfo = discord.Embed(
             title=None,
-            color=amarelo,
+            color=branco,
             description=None
         )
         embedserverinfo.set_author(name='Informações do servidor ' + server.name, icon_url=server.icon_url)
@@ -586,7 +586,7 @@ async def on_message(message):
             return await client.send_message(message.channel, embed=embedbanidobot)
         embedfalar = discord.Embed(
             title=None,
-            color=amarelo,
+            color=branco,
             description=message.content[8:]
         )
         embedfalar.set_footer(text='Mensagem enviada por ' + message.author.name, icon_url=message.author.avatar_url)
@@ -648,7 +648,7 @@ async def on_message(message):
             return await message.channel.send(embed=errorembedpermi)
         avisoembed = discord.Embed(
             title=None,
-            color=amarelo,
+            color=branco,
             description=message.content[8:]
         )
         avisoembed.set_author(name='📣 Aviso 📣')
@@ -670,7 +670,7 @@ async def on_message(message):
         log = discord.utils.find(lambda c: c.name == 'log', message.author.guild.channels)
         muteembed = discord.Embed(
             title=None,
-            color=amarelo,
+            color=branco,
             description='Nome: ' + mention1.name + '\n'
                                                    'Motivo: ' + message.content[30:] + '\n'
                                                                                        'Por: ' + message.author.name
@@ -681,7 +681,7 @@ async def on_message(message):
         muteembed.set_footer(text='2018 © Hullo')
         muteembedlog = discord.Embed(
             title=None,
-            color=amarelo,
+            color=branco,
             description='Nome: ' + mention1.name + '\n'
                                                    'Motivo: ' + message.content[30:] + '\n'
                                                                                        'Por: ' + message.author.name
@@ -707,7 +707,7 @@ async def on_message(message):
         mentionban = message.mentions[0]
         embedban = discord.Embed(
             title=None,
-            color=amarelo,
+            color=branco,
             description='Usuário: ' + mentionban.name + '\n'
                     'Motivo: ' + message.content[28:] + '\n'
                     'Staff: ' + message.author.name + '\n'
@@ -716,7 +716,7 @@ async def on_message(message):
         embedban.set_thumbnail(url='https://upload.wikimedia.org/wikipedia/commons/1/14/Ban_sign.png')
         embeddmban = discord.Embed(
             title=None,
-            color=amarelo,
+            color=branco,
             description='Você foi banido do Servidor ' + message.author.guild.name + '\n' 
                         'Motivo: ' + message.content[28:] + '\n'
                         'Staff: ' + message.author.name
@@ -745,7 +745,7 @@ async def on_message(message):
         mentionkick = message.mentions[0]
         embedkick = discord.Embed(
             title=None,
-            color=amarelo,
+            color=branco,
             description='Usuário: ' + mentionkick.name + '\n'
                         'Motivo: ' + message.content[28:] + '\n'
                         'Staff: ' + message.author.name
@@ -754,7 +754,7 @@ async def on_message(message):
         embedkick.set_thumbnail(url='https://upload.wikimedia.org/wikipedia/commons/1/14/Ban_sign.png')
         embeddmkick = discord.Embed(
             title=None,
-            color=amarelo,
+            color=branco,
             description='Você foi kickado do Servidor ' + message.author.guild.name + '\n' 
                         'Motivo: ' + message.content[28:] + '\n'
                         'Staff: ' + message.author.name
@@ -812,7 +812,7 @@ async def on_message_edit(before, after):
         logserverdomr = discord.utils.find(lambda c: c.name == '💥inferno-dos-bots', before.guild.channels)
         embededit = discord.Embed(
             title=None,
-            color=amarelo,
+            color=branco,
             description=None,
         )
         embededit.set_author(name='Mensagem Editada - ' + before.author.name, icon_url=before.author.avatar_url)
@@ -838,7 +838,7 @@ async def on_message_delete(message):
     logserverdomr = discord.utils.find(lambda c: c.name == '💥inferno-dos-bots', message.guild.channels)
     embeddelet = discord.Embed(
         title=None,
-        color=amarelo,
+        color=branco,
         description=None,
     )
     embeddelet.set_author(name='Mensagem Deletada - ' + message.author.name)
