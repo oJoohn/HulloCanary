@@ -667,6 +667,8 @@ async def on_message(message):
             return await client.send_message(message.channel,embed=errorembedpermi)
         mention1 = message.mentions[0]
         cargo = discord.utils.get(message.author.guild.roles,name='Mutado')
+        cargo2 = discord.utils.get(message.author.guild.roles,name='mutado')
+        cargo3 = discord.utils.get(message.author.guild.roles,name='MUTADO')
         log = discord.utils.find(lambda c: c.name == 'log', message.author.guild.channels)
         muteembed = discord.Embed(
             title=None,
@@ -690,10 +692,21 @@ async def on_message(message):
         muteembedlog.set_thumbnail(
             url='https://images.vexels.com/media/users/3/134546/isolated/preview/b1b61276fef1c4a683aabaa53833c7ca-emoticon-emoji-rosto-triste-by-vexels.png')
         muteembedlog.set_footer(text='2018 © Hullo')
-
-        await mention1.add_roles(cargo)
+    try:
         await message.channel.send(embed=muteembed)
         await log.send(embed=muteembedlog)
+    except:
+        0
+    try:
+        await mention1.add_roles(cargo)
+    except:
+        try:
+            await mention1.add_roles(cargo2)
+        except:
+            try:
+                await mention1.add_roles(cargo3)
+            except:
+                pass
     #if message.content.lower().startswith(prefix + 'unmute'):
         #mention1 = message.mentions[0]
         #await mention1.remove_roles('Mutado')
