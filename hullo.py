@@ -187,7 +187,7 @@ async def on_message(message):
     if message.content.lower().startswith(prefix+"eval"):
         if message.author.id == 369962464613367811:
           try:
-            messagem = await message.channel(message.channel, str(eval(message.content[7:])))
+            messagem = await message.channel.send(str(eval(message.content[7:])))
             await messagem.add_reaction("🤔")
           except Exception as e:
               messagem = await message.channel.send(repr(e))
