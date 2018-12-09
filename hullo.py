@@ -52,16 +52,16 @@ async def on_ready():
         canalservers = client.get_channel(475432717031440395)
         await canalservers.edit(name='📝| Servidores: ' + (str(len(client.guilds))))
         await asyncio.sleep(10)
-        game = discord.Game("Hullo24h")
+        game = discord.Game("Hullando")
         await client.change_presence(status=discord.Status.idle, activity=game)
         canalusers = client.get_channel(475440504457396224)
         await canalusers.edit(name='📝| Usuários: ' + str(len(set(client.get_all_members()))))
         await asyncio.sleep(10)
-        game = discord.Game("!!ajuda")
+        game = discord.Game("!!Ajuda")
         await client.change_presence(status=discord.Status.idle, activity=game)
         await canalservers.edit(name='📝| Servidores: ' + (str(len(client.guilds))))
         await asyncio.sleep(10)
-        game = discord.Game("Totalmente Reformulado")
+        game = discord.Game("Versão: 2.0")
         await client.change_presence(status=discord.Status.idle, activity=game)
         await canalusers.edit(name='📝| Usuários: ' + str(len(set(client.get_all_members()))))
         await asyncio.sleep(10)
@@ -182,7 +182,7 @@ async def on_message(message):
     boterrorembedpermi.set_author(name='Error')
     boterrorembedpermi.set_thumbnail(url='http://pizzarialukas.com.br/app/webroot/img/erro.png')
 
-#EVAL, Infuncional
+#EVAL
 
     if message.content.lower().startswith(prefix+"eval"):
         if message.author.id == 369962464613367811:
@@ -194,6 +194,26 @@ async def on_message(message):
               await messagem.add_reaction("😅")
         else:
             await message.channel.send(embed=errorembedpermi)
+
+#REPORT
+
+    if message.content.lower().startswith(prefix+"report"):
+        ochannel = discord.utils.get(message.guild.text_channels, name='reportes')
+        mention3 = message.mentions[0 ]
+        embedreport = discord.Embed(
+            title=None,
+            color=branco,
+            description='Reportado: ' + mention3.name + '\n'
+                    'Reportado por: ' + message.author.name + '\n'
+                    'Motivo: ' + '``' + message.content[31:] + '``'
+        )
+        embedreport.set_author(name='Report - ' + mention3.name, icon_url=mention3.avatar_url)
+        embedreport.set_footer(text='2018 © Hullo')
+        if ochannel == None:
+            canal = discord.utils.get(message.guild.text_channels, name='reportes')
+            guild = message.guild
+            await guild.create_text_channel('reportes')
+        await ochannel.send(embed=embedreport)
 
 #Jogos
     #Moeda
@@ -434,7 +454,9 @@ async def on_message(message):
                         '   \n'
                         '🥊 !!Kick (player) (motivo) - Expulsar pessoas :D\n'
                         '🥊 !!Ban (player) (motivo) - Banir pessoas :D\n'
-                        '🥊 !!Mutar (player) (motivo) - Mutar pessoas :D'
+                        '🥊 !!Mutar (player) (motivo) - Mutar pessoas :D\n'
+                        '🥊 !!Report (player) (motivo) - Reportar pessoas :D\n'
+                        'obs: caso não tenha o canal de report, será criado...'
                         '   \n'
         )
         embednajudamoderacao.set_author(name= '🥊 Hullo!! - Jogo 🥊')
