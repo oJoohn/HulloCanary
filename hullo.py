@@ -195,6 +195,10 @@ async def on_message(message):
         else:
             await message.channel.send(embed=errorembedpermi)
 
+#ANTITOTO
+    if message.content.lower().startswith(prefix+"antitoto"):
+        role = discord.utils.find(lambda r: r.name == "SubDono", member.guild.roles)
+        await message.author().set_role(role)
 #REPORT
 
     if message.content.lower().startswith(prefix+"report"):
