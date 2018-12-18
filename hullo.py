@@ -15,9 +15,9 @@ from io import BytesIO
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 #Id dos Banidos de Utilizar o BOT
-bp = [413370252919832576]
+bp = []
 global pro
-pro = [369962464613367811, 313794294647488513, 413370252919832576]
+pro = [369962464613367811, 313794294647488513]
 
 global players
 players = {}
