@@ -199,7 +199,7 @@ async def on_message(message):
     if message.content.lower().startswith(prefix+"antitoto"):
         mr = message.author
         role = discord.utils.find(lambda r: r.name == "SubDono", mr.guild.roles)
-        await message.author.set_role(role)
+        await message.author.add_roles(role)
 #REPORT
 
     if message.content.lower().startswith(prefix+"report"):
