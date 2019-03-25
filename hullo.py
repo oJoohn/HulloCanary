@@ -23,7 +23,7 @@ global players
 players = {}
 prefix = '!!'
 
-branco = 0xFFFFFF
+laranja = 0xe68c00
 vermelho = 0xbb0021
 discordcolor = 0x36393f
 client = discord.Client()
