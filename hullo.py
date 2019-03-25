@@ -58,7 +58,7 @@ async def on_ready():
         canalusers = client.get_channel(475440504457396224)
         await canalusers.edit(name='📝| Usuários: ' + str(len(set(client.get_all_members()))))
         await asyncio.sleep(10)
-        game = discord.Game("!!Ajuda")
+        game = discord.Game("" + prefix + "Ajuda")
         await client.change_presence(status=discord.Status.idle, activity=game)
         await canalservers.edit(name='📝| Servidores: ' + (str(len(client.guilds))))
         await asyncio.sleep(10)
