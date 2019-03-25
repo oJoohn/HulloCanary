@@ -385,7 +385,7 @@ async def on_message(message):
 
     #Mention
 
-    if message.content.lower().startswith("<@431800868585865219>"):
+    if message.content.lower().startswith("<@" + client.user.id+ ">"):
         if message.author.id in bp:
             return await message.channel.send(embed=embedbanidobot)
         embedmention = discord.Embed(
