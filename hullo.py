@@ -22,6 +22,7 @@ pro = [369962464613367811, 313794294647488513]
 global players
 players = {}
 prefix = '!!'
+hulloid = "<@559524131734028318>"
 
 laranja = 0xe68c00
 vermelho = 0xbb0021
@@ -385,7 +386,7 @@ async def on_message(message):
 
     #Mention
 
-    if message.content.lower().startswith(client.user.id):
+    if message.content.lower().startswith(hulloid):
         if message.author.id in bp:
             return await message.channel.send(embed=embedbanidobot)
         embedmention = discord.Embed(
